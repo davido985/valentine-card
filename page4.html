@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Playlist + Movies 💗</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <div class="topbar">
+      <div class="brand">
+        <span class="badge">🎶🎬 Playlist & Movies</span>
+        <span class="progress">Page 4 / 4</span>
+      </div>
+      <div class="btn-row" style="margin:0;">
+        <a class="btn btn-ghost btn-link" href="page3.html">← Back</a>
+        <a class="btn btn-primary btn-link" href="index.html">Back to start ↺</a>
+      </div>
+    </div>
+
+    <section class="card">
+      <h1>Set the mood 💗</h1>
+      <p class="lead">Open the playlist, then pick a movie together.</p>
+
+      <h2>🎶 Playlist</h2>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-link" href="PASTE_PLAYLIST_LINK_HERE" target="_blank" rel="noopener">
+          Open playlist
+        </a>
+      </div>
+      <p class="muted">Replace <code>PASTE_PLAYLIST_LINK_HERE</code> with your Spotify/Apple Music link.</p>
+
+      <h2 style="margin-top:18px;">🎬 Movie choices</h2>
+      <div class="chips">
+        <button class="chip" data-movie="Julie & Julia">Julie & Julia</button>
+        <button class="chip" data-movie="Amélie">Amélie</button>
+        <button class="chip" data-movie="Your Name">Your Name</button>
+        <button class="chip" data-movie="Past Lives">Past Lives</button>
+        <button class="chip" data-movie="In the Mood for Love">In the Mood for Love</button>
+      </div>
+
+      <p class="hint">✅ Selected: <span id="pickedMovie">None yet</span></p>
+
+      <div class="reveal" style="margin-top:14px;">
+        <strong>One last thing…</strong>
+        <p class="muted" style="margin:8px 0 0;">
+          Thank you for being my favorite person. Next time, we do this in Sydney for real. 💐
+        </p>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </main>
+</body>
+</html>
