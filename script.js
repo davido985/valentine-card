@@ -1,77 +1,61 @@
-// Page 1: yes/no behavior (only runs if elements exist)
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const hint = document.getElementById("hint");
 const reveal = document.getElementById("reveal");
-const nextLink = document.getElementById("nextLink");
-
-// Page 4: movie chips
 const pickedMovie = document.getElementById("pickedMovie");
 const chips = document.querySelectorAll(".chip");
 
 let noCount = 0;
 
-if (yesBtn && noBtn && hint && reveal && nextLink) {
-  yesBtn.addEventListener("click", () => {
-    reveal.classList.remove("hidden");
-    hint.textContent = "Yay 💖 okay… next page 😌";
-    popConfetti();
+yesBtn.addEventListener("click", () => {
+  reveal.classList.remove("hidden");
+  hint.textContent = "Best decision ever 😌💖";
+  popConfetti();
+  // Gentle scroll so she sees the plan
+  reveal.scrollIntoView({ behavior: "smooth", block: "center" });
+});
 
-    // Enable "Next" button after YES
-    nextLink.classList.remove("hidden");
-    nextLink.focus();
-    reveal.scrollIntoView({ behavior: "smooth", block: "center" });
+noBtn.addEventListener("click", () => {
+  noCount++;
+  const lines = [
+    "No? are you sure 🙈",
+    "That button is looking suspicious… 😅",
+    "Okay okay… but what if I ask nicely? 🥺",
+    "I cooked AND planned movies though 😭",
+    "Plot twist: you meant YES 😇"
+  ];
+  hint.textContent = lines[Math.min(noCount - 1, lines.length - 1)];
+
+  // Make the NO button run away a bit (cute, not annoying)
+  const x = (Math.random() * 180) - 90;
+  const y = (Math.random() * 120) - 60;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+// Movie selection
+chips.forEach((chip) => {
+  chip.addEventListener("click", () => {
+    chips.forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    pickedMovie.textContent = chip.dataset.movie;
   });
+});
 
-  noBtn.addEventListener("click", () => {
-    noCount++;
-    const lines = [
-      "No? are you sure 🙈",
-      "That button is being dramatic 😅",
-      "I brought snacks + movies though 🥺",
-      "Plot twist: you meant YES 😇",
-      "Okay okay I’ll ask again… YES? 💗"
-    ];
-    hint.textContent = lines[Math.min(noCount - 1, lines.length - 1)];
-
-    // playful runaway
-    const x = (Math.random() * 180) - 90;
-    const y = (Math.random() * 120) - 60;
-    noBtn.style.transform = `translate(${x}px, ${y}px)`;
-  });
-}
-
-// Movie selection (Page 4)
-if (chips && pickedMovie) {
-  chips.forEach((chip) => {
-    chip.addEventListener("click", () => {
-      chips.forEach(c => c.classList.remove("active"));
-      chip.classList.add("active");
-      pickedMovie.textContent = chip.dataset.movie;
-    });
-  });
-}
-
-// Confetti (simple)
+// Confetti (tiny, lightweight)
 const canvas = document.getElementById("confetti");
-let ctx = null;
+const ctx = canvas.getContext("2d");
 let confettiPieces = [];
 
-if (canvas) {
-  ctx = canvas.getContext("2d");
-  const resize = () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  };
-  window.addEventListener("resize", resize);
-  resize();
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
+window.addEventListener("resize", resize);
+resize();
 
 function popConfetti() {
-  if (!ctx || !canvas) return;
-
   confettiPieces = [];
-  const colors = ["#ff4fa3", "#ff86c6", "#ffd1e6", "#ffffff", "#ffb3d7"];
+  const colors = ["#ff4da6", "#7c5cff", "#32d296", "#ffd166", "#f6f4ff"];
 
   for (let i = 0; i < 160; i++) {
     confettiPieces.push({
@@ -106,5 +90,9 @@ function tick() {
   });
 
   confettiPieces = confettiPieces.filter(p => p.life > 0 && p.y < canvas.height + 40);
-  if (confettiPieces.length > 0) requestAnimationFrame(tick);
+
+  if (confettiPieces.length > 0) {
+    requestAnimationFrame(tick);
+  }
 }
+
