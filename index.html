@@ -3,211 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Will you be my Valentine? 💘</title>
-  <meta name="description" content="A tiny interactive Valentine card." />
+  <title>Will you be my Valentine? 💗</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-hearts" aria-hidden="true"></div>
-
   <main class="container">
-    <header class="hero">
-      <div class="badge">💌 Valentine’s Card</div>
-      <h1>Hey love,</h1>
+    <div class="topbar">
+      <div class="brand">
+        <span class="badge">💌 Valentine Card</span>
+        <span class="progress">Page 1 / 4</span>
+      </div>
+    </div>
+
+    <section class="card">
+      <h1>Hey love 💗</h1>
       <p class="lead">
-        I can’t be there in Sydney today, but I can still plan something cozy with you.
+        I can’t be there in Sydney today, but I can still take you on a date from here.
       </p>
 
-      <section class="ask" aria-label="Valentine question">
-        <h2>Will you be my Valentine?</h2>
-        <div class="btn-row">
-          <button id="yesBtn" class="btn btn-yes">Yes 💖</button>
-          <button id="noBtn" class="btn btn-no">No 🙈</button>
-        </div>
-        <p id="hint" class="hint">Choose wisely 😇</p>
-      </section>
-
-      <section id="reveal" class="reveal hidden" aria-label="Reveal message">
-        <div class="reveal-card">
-          <h3>YAYYYY 💞</h3>
-          <p>
-            Okay then… it’s a date. Here’s our plan for today:
-          </p>
-          <div class="mini">
-            <span>📍 You + Me</span>
-            <span>🕑 Start: 2:00 PM (your time)</span>
-            <span>🌙 Sydney evening vibes</span>
-          </div>
-        </div>
-      </section>
-    </header>
-
-    <section class="card">
-      <h2>📸 Us</h2>
-      <p class="sub">A few moments I love.</p>
-
-      <!-- OPTION A: Local images (recommended) -->
-      <div class="gallery" id="gallery">
-        <figure>
-          <img src="assets/photo1.jpg" alt="Us photo 1" />
-          <figcaption>Our moment ✨</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/photo2.jpg" alt="Us photo 2" />
-          <figcaption>My favorite human 🥺</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/photo3.jpg" alt="Us photo 3" />
-          <figcaption>Sydney soon 💐</figcaption>
-        </figure>
+      <h2>Will you be my Valentine?</h2>
+      <div class="btn-row">
+        <button id="yesBtn" class="btn btn-primary">Yes 💖</button>
+        <button id="noBtn" class="btn btn-ghost">No 🙈</button>
       </div>
 
-      <!-- OPTION B: Remote images (uncomment if you prefer URLs)
-      <div class="gallery">
-        <figure><img src="https://..." alt="Us photo 1" /><figcaption>...</figcaption></figure>
-      </div>
-      -->
-    </section>
+      <p id="hint" class="hint">Click a button 😇</p>
 
-    <section class="card">
-      <h2>🗓️ Itinerary</h2>
-      <p class="sub">Cozy, cute, and together (even from far away).</p>
-
-      <ol class="timeline">
-        <li>
-          <div class="time">2:00 PM</div>
-          <div class="desc">
-            <strong>Video call + kitchen setup</strong>
-            <div class="muted">Candles, comfy clothes, playlist on 🎶</div>
-          </div>
-        </li>
-        <li>
-          <div class="time">2:15 PM</div>
-          <div class="desc">
-            <strong>Cook together</strong>
-            <div class="muted">Same recipe, same time—like we’re sharing a kitchen.</div>
-          </div>
-        </li>
-        <li>
-          <div class="time">3:15 PM</div>
-          <div class="desc">
-            <strong>Indoor picnic</strong>
-            <div class="muted">Blanket + snacks + “cheers” moment 🍓</div>
-          </div>
-        </li>
-        <li>
-          <div class="time">4:00 PM</div>
-          <div class="desc">
-            <strong>Movie time</strong>
-            <div class="muted">Pick one from our list below 🎬</div>
-          </div>
-        </li>
-        <li>
-          <div class="time">After</div>
-          <div class="desc">
-            <strong>One sweet thing</strong>
-            <div class="muted">Love note + “next time in Sydney” promise 💗</div>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="card">
-      <h2>🍳 What we’re cooking</h2>
-      <p class="sub">Asian + French-ish, cozy and romantic.</p>
-
-      <div class="two-col">
-        <div class="panel">
-          <h3>Main</h3>
-          <ul>
-            <li><strong>French-style creamy garlic chicken</strong></li>
-            <li>Side: buttered rice or crusty bread</li>
-            <li>Optional: simple green salad</li>
-          </ul>
-          <details>
-            <summary>Ingredient list (edit me)</summary>
-            <ul class="muted">
-              <li>Chicken thighs/breasts</li>
-              <li>Garlic, butter, cream</li>
-              <li>Parmesan (optional), herbs</li>
-              <li>Salt/pepper, lemon</li>
-            </ul>
-          </details>
-        </div>
-
-        <div class="panel">
-          <h3>Dessert</h3>
-          <ul>
-            <li><strong>Japanese soufflé pancakes</strong> (or regular fluffy pancakes)</li>
-            <li>Toppings: strawberries + powdered sugar</li>
-          </ul>
-          <details>
-            <summary>Mini challenge</summary>
-            <p class="muted">
-              If we mess it up, we laugh and eat anyway. That’s the rule 😄
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>🎶 Playlist for the day</h2>
-      <p class="sub">Play this while we cook + picnic.</p>
-
-      <div class="playlist">
-        <a class="btn btn-link" href="PASTE_SPOTIFY_PLAYLIST_LINK_HERE" target="_blank" rel="noopener">
-          Open playlist
-        </a>
-        <p class="muted">Tip: paste your Spotify/Apple Music playlist link above.</p>
-
-        <!-- Optional Spotify embed: replace the src with the "Embed" link from Spotify -->
-        <div class="embed">
-          <iframe
-            style="border-radius:12px"
-            src="PASTE_SPOTIFY_EMBED_SRC_HERE"
-            width="100%"
-            height="152"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>🎬 Movie choices</h2>
-      <p class="sub">Pick one and we’ll sync-play.</p>
-
-      <div class="chips" id="movieChips">
-        <button class="chip" data-movie="Julie & Julia">Julie & Julia</button>
-        <button class="chip" data-movie="Amélie">Amélie</button>
-        <button class="chip" data-movie="Your Name">Your Name</button>
-        <button class="chip" data-movie="Past Lives">Past Lives</button>
-        <button class="chip" data-movie="In the Mood for Love">In the Mood for Love</button>
+      <div id="reveal" class="reveal hidden">
+        <strong>YAYYYY 💞</strong>
+        <p class="muted" style="margin:8px 0 0;">
+          Okay then… I planned something cute. Let’s go to the next page ✨
+        </p>
       </div>
 
-      <p class="picked">
-        ✅ Selected: <span id="pickedMovie">None yet</span>
-      </p>
-
-      <details>
-        <summary>How we’ll watch together</summary>
-        <ul class="muted">
-          <li>Start a call</li>
-          <li>Pick a movie from above</li>
-          <li>Countdown: 3…2…1…play</li>
-        </ul>
-      </details>
+      <div class="btn-row">
+        <a id="nextLink" class="btn btn-primary btn-link hidden" href="page2.html">Next →</a>
+      </div>
     </section>
-
-    <footer class="footer">
-      <p>
-        Made with love by <span class="sig">YOUR_NAME</span> 💗
-      </p>
-    </footer>
 
     <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+    <p class="footer">Made with love by <span style="color:#7a2a50;font-weight:900;">YOUR_NAME</span> 💗</p>
   </main>
 
   <script src="script.js"></script>
